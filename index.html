@@ -1,0 +1,77 @@
+/Input
+
+//Clicks from user on figures 
+
+//Operations
+
+//Randomizer for number to guess 19 to 120
+
+//Randomizer for every single crystal 1 to 12
+
+//Reset and start functions
+
+//Score Addeer for wins and losses
+
+//Dom manipulator linking crystals and randomly generated number
+
+//Add total score
+
+//Expected Outcomes
+
+//If total score equals original random number then record that as a win and restart game
+
+//If totall score goes over original random number then record that as  a loss and restart game
+
+<!DOCTYPE html>
+	<html lang='en'>
+	<head>
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width, intitial-scale=1'>
+		<title>Bodybuilder Number Guess Game</title>
+		<link rel='stylesheet' type='text/css' href='assets/css/reset.css'>
+		<link rel='stylesheet' type='text/css' href='assets/css/style.css'>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<div id='container'>
+			<div id='header'>
+				<h1 class='title'>Bodybuilding Guess Game</h1>
+			</div>
+			<div id='instructions'>
+				<p class='steps'>A number will be randomly generated every time the game starts, this is the exact number of reps you need to get to get swolle!</p>
+				<p class='steps'>There are four types of exercises which you can choose to do. Every time you click on one of the exercsies it will add a reps to your number of reps.</p>
+				<p class='steps'>You win the game by matching your toal number of reps to the randonmly generated number, you loose if your total number of reps goes above the random number.</p>
+				<p class='steps'>The value of each exercise is hidden from you until you click on it. </p>
+				<p class='steps'>Each time the game starts the value of each of the exercises will be randomly chosen to a new one</p>
+			</div>
+			<div id=rando></div>
+			<div id=score>
+				<p>Wins: <span id=wins> </span></p>
+				<p>Losses: <span id=losses> </span></p>
+			</div>
+			<div id=exercises>
+				<button-1 id=set1> 
+					<img>
+				</button-1>
+				<button-2 id=set2> 
+					<img>
+				</button-2>
+				<button-3 id=set3> 
+					<img>
+				</button-3>
+				<button-4 id=set4> 
+					<img>
+				</button-4>
+			</div>
+			<div id=result>
+				<h2>Yout total number of reps:</h2>
+			</div>
+			<div id=tots>
+				<p><span id=sum> </span></p>
+			</div>
+		</div>
+		<script src='assets/javascript/game.js'></script>
+	</body>
+</html>
+
