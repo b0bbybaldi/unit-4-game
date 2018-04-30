@@ -1,4 +1,4 @@
-/Input
+<!-- /Input
 
 //Clicks from user on figures 
 
@@ -20,15 +20,15 @@
 
 //If total score equals original random number then record that as a win and restart game
 
-//If totall score goes over original random number then record that as  a loss and restart game
+//If totall score goes over original random number then record that as  a loss and restart game -->
 
 <!DOCTYPE html>
 	<html lang='en'>
 	<head>
 		<meta charset='UTF-8'>
-		<meta name='viewport' content='width=device-width, intitial-scale=1'>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Bodybuilder Number Guess Game</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 		<link rel='stylesheet' type='text/css' href='assets/css/reset.css'>
 		<link rel='stylesheet' type='text/css' href='assets/css/style.css'>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -38,13 +38,13 @@
 		<div id='container'>
 			<div id='header'>
 				<h1 class='title'>Bodybuilding Guess Game</h1>
+				<hr>
 			</div>
 			<div id='instructions'>
-				<p class='steps'>A number will be randomly generated every time the game starts, this is the exact number of reps you need to get to get swolle!</p>
-				<p class='steps'>There are four types of exercises which you can choose to do. Every time you click on one of the exercsies it will add a reps to your number of reps.</p>
-				<p class='steps'>You win the game by matching your toal number of reps to the randonmly generated number, you loose if your total number of reps goes above the random number.</p>
+				<p class='steps'>A number will be randomly generated every time the game starts. This will be number of reps you need to get to get swolle!</p>
+				<p class='steps'>There are four types of exercises which you can choose to do. Every time you click on one of the exercises it will add a number of reps to your total number of reps.</p>
+				<p class='steps'>You win the game by matching your toal number of reps to the randomly generated number. You loose if your total number of reps goes above the randomly generated number.</p>
 				<p class='steps'>The value of each exercise is hidden from you until you click on it. </p>
-				<p class='steps'>Each time the game starts the value of each of the exercises will be randomly chosen to a new one</p>
 			</div>
 			<div id=rando></div>
 			<div id=score>
@@ -53,26 +53,30 @@
 			</div>
 			<div id=exercises>
 				<button-1 id=set1> 
-					<img src="assets/images/run.jpg" alt="Run" width=20%>
+					<img src="assets/images/run.jpg" alt="Run" height=150px>
 				</button-1>
 				<button-2 id=set2> 
-					<img src="assets/images/intervals.jpg" alt="Interval Training" width=20%>
+					<img src="assets/images/intervals.jpg" alt="Interval Training" height=150px>
 				</button-2>
 				<button-3 id=set3> 
-					<img src="assets/images/pullups.jpg" alt="Pull Up" width=20%>
+					<img src="assets/images/pullups.jpg" alt="Pull Up" height=150px>
 				</button-3>
 				<button-4 id=set4> 
-					<img src="assets/images/barbell.jpg" alt="Barbell Weightlifting" width=20%>
+					<img src="assets/images/barbell.jpg" alt="Barbell Weightlifting" height=150px>
 				</button-4>
 			</div>
 			<div id=result>
-				<h2>Yout total number of reps:</h2>
+				<p>Your total number of reps:</p>
 			</div>
 			<div id=tots>
 				<p><span id=sum> </span></p>
 			</div>
 		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src='assets/javascript/game.js'></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 	</body>
 </html>
 

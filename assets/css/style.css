@@ -1,0 +1,68 @@
+body {
+	size: 960 px;
+	background-color: lightgray;
+}
+
+h1 {
+	font-weight: bold;
+	text-align: center
+	font-size: 20px;
+}
+
+hr {
+	border-width: thick;
+	border-color: white;
+}
+
+#instructions{
+	font-size: 14px;
+	text-align: justify;
+	border-style: solid;
+	border-width: thin;
+	border-color: white;
+	padding-left: 30px;
+}
+
+.rando{
+	font-size: 16px;
+	font-weight: bold;
+	border-style: solid;
+	border-width: thin;
+	border-color: white;
+	padding-left: 100px;
+}
+
+
+.score{
+	font-size: 16px;
+	font-weight: bold;
+	border-style: solid;
+	border-width: thin;
+	border-color: white;
+	padding-left: 20px;
+}
+
+.exercises{
+	padding-left: 20px;
+	border-style: solid;
+	border-width: thin;
+	border-color: white;
+}
+
+.result{
+	font-size: 16px;
+	font-weight: bold;
+	border-style: solid;
+	border-width: thin;
+	border-color: white;
+	padding-left: 20px;
+}
+
+.tots{
+	font-size: 16px;
+	font-weight: bold;
+	border-style: solid;
+	border-width: thin;
+	border-color: white;
+	padding-left: 20px;
+}

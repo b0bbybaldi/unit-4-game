@@ -1,28 +1,3 @@
-//Input
-
-//Clicks from user on figures 
-
-//Operations
-
-//Randomizer for number to guess 19 to 120
-
-//Randomizer for every single crystal 1 to 12
-
-//Reset and start functions
-
-//Score Addeer for wins and losses
-
-//Dom manipulator linking crystals and randomly generated number
-
-//Add total score
-
-//Expected Outcomes
-
-//If total score equals original random number then record that as a win and restart game
-
-//If totall score goes over original random number then record that as  a loss and restart game
-
-
 $(document).ready(function(){
 	
 //var random number button 1,2,3,4
@@ -55,35 +30,35 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//function to compare values
+
+function compare(num){
+	if(num === randoreps){
+		wins++;
+		$('#wins').text(wins);
+		alert('You Won!')
+		reset();
+	}else if(num > randoreps){
+		losses++;
+		$('#losses').text(losses);
+		alert('You lost :(');
+		reset();
+	}
+}
+
 //function to reset game
 
-var reset = function(){
+function reset(){
 	score = 0;
-
-	rando1 = getRandom(1,12);
-	rando2 = getRandom(1,12);
-	rando3 = getRandom(1,12);
-	rando4 = getRandom(1,12);
-
-	randoreps = getRandom(19,120);
-
-	score = 0;
-
-	wins = 0;
-
-	losses = 0;
-
-	test = false;
+	$('#sum').empty();
 	start();	
 }
 
 //function to start game
 
-var start = function(){
-	test = true;
+start();
 
-	score = 0;
-
+function start(){
 	rando1 = getRandom(1,12);
 	console.log(rando1);
 	rando2 = getRandom(1,12);
@@ -96,55 +71,35 @@ var start = function(){
 	randoreps = getRandom(19,120);
 	$('#rando').text(randoreps);
 
-	play();
-}
-
-//function for game functionality
-
-var play = function(){
-
-	$("#set1, #set2, #set3, #set4, #wins, #losses, #sum").empty();
-
 	$("#set1").on("click", function() {
 		score = score + rando1;
-		$('#set1').text(score);
-		return;
-	}
+		console.log(score)
+		$('#set1').val(score);
+		$('#sum').text(score);
+		compare(score);
+	})
 
 	$("#set2").on("click", function() {
 		score = score + rando2;
-		$('#set2').text(score);
-		return;
-	}
+		$('#set2').val(score);
+		$('#sum').text(score);
+		compare(score);
+	})
 
 	$("#set3").on("click", function() {
 		score = score + rando3;
-		$('#set3').text(score);
-		return;
-	}
+		$('#set3').val(score);
+		$('#sum').text(score);
+		compare(score);
+	})
 
 	$("#set4").on("click", function() {
 		score = score + rando4;
-		$('#set4').text(score);
-		return;
-	}
-
-	result();
+		$('#set4').val(score);
+		$('#sum').text(score);
+		compare(score);
+	})
 }
 
-//function to keep track of game outcome result
-
-var result = function(){
-	if(score === randoreps){
-		wins++;
-		$('#wins').text(wins);
-		alert('You Won!')
-		reset();
-	}else if(score > randoreps){
-		losses++;
-		$('#losses').text(losses);
-		alert('You lost :(');
-		reset();
-	}
-}
+});
 
