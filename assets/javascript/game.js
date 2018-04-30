@@ -80,6 +80,8 @@ var reset = function(){
 //function to start game
 
 var start = function(){
+	test = true;
+
 	score = 0;
 
 	rando1 = getRandom(1,12);
@@ -92,9 +94,9 @@ var start = function(){
 	console.log(rando4);
 
 	randoreps = getRandom(19,120);
+	$('#rando').text(randoreps);
 
-	document.getElementById('rando').innerHTML = randoreps;
-
+	play();
 }
 
 //function for game functionality
@@ -105,27 +107,29 @@ var play = function(){
 
 	$("#set1").on("click", function() {
 		score = score + rando1;
-		document.getElementById('set1');
+		$('#set1').text(score);
 		return;
 	}
 
 	$("#set2").on("click", function() {
 		score = score + rando2;
-		document.getElementById('set2');
+		$('#set2').text(score);
 		return;
 	}
 
 	$("#set3").on("click", function() {
 		score = score + rando3;
-		document.getElementById('set3');
+		$('#set3').text(score);
 		return;
 	}
 
 	$("#set4").on("click", function() {
 		score = score + rando4;
-		document.getElementById('set4');
+		$('#set4').text(score);
 		return;
 	}
+
+	result();
 }
 
 //function to keep track of game outcome result
@@ -133,128 +137,14 @@ var play = function(){
 var result = function(){
 	if(score === randoreps){
 		wins++;
-		document.getElementById('wins').innerHTML = wins;
+		$('#wins').text(wins);
 		alert('You Won!')
 		reset();
 	}else if(score > randoreps){
 		losses++;
-		document.getElementById('losses').innerHTML = losses;
+		$('#losses').text(losses);
 		alert('You lost :(');
 		reset();
 	}
 }
 
-start()
-
-var 
-
-
-
-
-})
-
-$(document).ready(function() {
-
-      // Make our variables global to the runtime of our application
-      var firstNumber = 0;
-      var secondNumber = 0;
-      var operator = "";
-      var result = 0;
-      var isOperatorChosen = false;
-      var isCalculated = false;
-
-      // Use a function to initialize our calculator.
-      // This way when the user hits clear, we can guarantee a reset of the app.
-      function initializeCalculator() {
-        firstNumber = "";
-        secondNumber = "";
-        operator = "";
-        isOperatorChosen = false;
-        isCalculated = false;
-
-        $("#first-number, #second-number, #operator, #result").empty();
-      }
-
-      $(".card").on("click", ".number", function() {
-
-        // Check if we've already run a calculation, if so... we'll just.
-        if (isCalculated) {
-          return false;
-        }
-
-        // If operator is chosen, we should be writing the secondNumber, otherwise, the firstNumber
-        if (isOperatorChosen) {
-          secondNumber += $(this).val();
-          $("#second-number").text(secondNumber);
-
-        }
-        else {
-          firstNumber += $(this).val();
-          $("#first-number").text(firstNumber);
-        }
-
-      }).on("click", ".operator", function() {
-
-        // Check if a first number has already been selected
-        // Or we've already run a calculation, if so we just exit.
-        if (!firstNumber || isCalculated) {
-          return false;
-        }
-
-        // Set isOperatorChosen to true so we start writing to secondNumber
-        isOperatorChosen = true;
-
-        // Store off the operator
-        operator = $(this).val();
-
-        // Set the HTML of the #operator to the text of what was clicked
-        $("#operator").text($(this).text());
-
-      }).on("click", ".equal", function() {
-
-        // If we already clicked equal, don't do the calculation again
-        if (isCalculated) {
-          return false;
-        }
-
-        // Set isCalculated to true so that we don't get in a weird UI state by clicking buttons again
-        isCalculated = true;
-
-        // Use parseInt to convert our string representation of numbers into actual integers
-        firstNumber = parseInt(firstNumber);
-        secondNumber = parseInt(secondNumber);
-
-        // Based on the operator that was chosen.
-        // Then run the operation and set the HTML of the result of that operation
-        if (operator === "plus") {
-          result = firstNumber + secondNumber;
-        }
-
-        else if (operator === "minus") {
-          result = firstNumber - secondNumber;
-        }
-
-        else if (operator === "times") {
-          result = firstNumber * secondNumber;
-        }
-
-        else if (operator === "divide") {
-          result = firstNumber / secondNumber;
-        }
-
-        else if (operator === "power") {
-          result = Math.pow(firstNumber, secondNumber);
-        }
-
-        $("#result").text(result);
-
-      }).on("click", ".clear", function() {
-
-        // Call initializeCalculater so we can reset the state of our app
-        initializeCalculator();
-
-      });
-
-      // Call initializeCalculater so we can set the state of our app
-      initializeCalculator();
-    });
