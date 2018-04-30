@@ -1,159 +1,77 @@
-//Input
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Calculator</title>
 
-//Clicks from user on figures 
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-//Operations
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-//Randomizer for number to guess 19 to 120
+</head>
+<body>
 
-//Randomizer for every single crystal 1 to 12
+  <div class="jumbotron">
+    <h1 class="text-center">jQuery Calculator</h1>
+    <h3 class="text-center">Perform basic mathematic operations using the power of jQuery!</h3>
+  </div>
 
-//Reset and start functions
+  <div class="container">
 
-//Score Addeer for wins and losses
+    <div class="row">
 
-//Dom manipulator linking crystals and randomly generated number
+      <!-- Calculator Panel -->
+      <div class="col-lg-4">
+        <div class="card">
+          <h3 class="card-header">Calculator</h3>
 
-//Add total score
+          <div class="card-body">
+            <button id="button-1" class="btn btn-primary number" value="1"><h1>1</h1></button>
+            <button id="button-2" class="btn btn-primary number" value="2"><h1>2</h1></button>
+            <button id="button-3" class="btn btn-primary number" value="3"><h1>3</h1></button>
+            <button id="button-plus" class="btn btn-danger operator" value="plus"><h1>+</h1></button>
+            <br><br>
+            <button id="button-4" class="btn btn-primary number" value="4"><h1>4</h1></button>
+            <button id="button-5" class="btn btn-primary number" value="5"><h1>5</h1></button>
+            <button id="button-6" class="btn btn-primary number" value="6"><h1>6</h1></button>
+            <button id="button-minus" class="btn btn-danger operator" value="minus"><h1>&minus;</h1></button>
+            <br><br>
+            <button id="button-7" class="btn btn-primary number" value="7"><h1>7</h1></button>
+            <button id="button-8" class="btn btn-primary number" value="8"><h1>8</h1></button>
+            <button id="button-9" class="btn btn-primary number" value="9"><h1>9</h1></button>
+            <button id="button-multiply" class="btn btn-danger operator" value="times"><h1>&times;</h1></button>
+            <br><br>
+            <button id="button-0" class="btn btn-primary number" value="0"><h1>0</h1></button>
+            <button id="button-divide" class="btn btn-danger operator" value="divide"><h1>&divide;</h1></button>
+            <button id="button-power" class="btn btn-danger operator" value="power"><h1>^</h1></button>
+            <button id="button-equal" class="btn btn-success equal" value="equals"><h1>=</h1></button>
+            <br><br>
+            <button id="button-clear" class="btn btn-dark clear" value="clear"><h1>clear</h1></button>
+          </div>
+        </div>
+      </div>
 
-//Expected Outcomes
+      <!-- Result Panel -->
+      <div class="col-lg-6">
+        <div class="card">
+          <h3 class="card-header">Result</h3>
+          <div class="card-body">
+            <h1 id="first-number"></h1>
+            <h1 id="operator"></h1>
+            <h1 id="second-number"></h1>
+            <hr>
+            <h1 id="result"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-//If total score equals original random number then record that as a win and restart game
+  <script type="text/javascript">
 
-//If totall score goes over original random number then record that as  a loss and restart game
-
-
-$(document).ready(function(){
-	
-//var random number button 1,2,3,4
-var rando1 = 0;
-var rando2 = 0;
-var rando3 = 0;
-var rando4 = 0; 
-
-//var random total number
-
-var randoreps = 0;
-
-//var score
-
-var score = 0;
-
-//var  wins
-
-var wins = 0;
-
-//var losses
-
-var losses = 0; 
-
-//function to generate random values
-
-function getRandom(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-//function to reset game
-
-var reset = function(){
-	score = 0;
-
-	rando1 = getRandom(1,12);
-	rando2 = getRandom(1,12);
-	rando3 = getRandom(1,12);
-	rando4 = getRandom(1,12);
-
-	randoreps = getRandom(19,120);
-
-	score = 0;
-
-	wins = 0;
-
-	losses = 0;
-
-	test = false;
-	start();	
-}
-
-//function to start game
-
-var start = function(){
-	score = 0;
-
-	rando1 = getRandom(1,12);
-	console.log(rando1);
-	rando2 = getRandom(1,12);
-	console.log(rando2);
-	rando3 = getRandom(1,12);
-	console.log(rando3);
-	rando4 = getRandom(1,12);
-	console.log(rando4);
-
-	randoreps = getRandom(19,120);
-
-	document.getElementById('rando').innerHTML = randoreps;
-
-}
-
-//function for game functionality
-
-var play = function(){
-
-	$("#set1, #set2, #set3, #set4, #wins, #losses, #sum").empty();
-
-	$("#set1").on("click", function() {
-		score = score + rando1;
-		document.getElementById('set1');
-		return;
-	}
-
-	$("#set2").on("click", function() {
-		score = score + rando2;
-		document.getElementById('set2');
-		return;
-	}
-
-	$("#set3").on("click", function() {
-		score = score + rando3;
-		document.getElementById('set3');
-		return;
-	}
-
-	$("#set4").on("click", function() {
-		score = score + rando4;
-		document.getElementById('set4');
-		return;
-	}
-}
-
-//function to keep track of game outcome result
-
-var result = function(){
-	if(score === randoreps){
-		wins++;
-		document.getElementById('wins').innerHTML = wins;
-		alert('You Won!')
-		reset();
-	}else if(score > randoreps){
-		losses++;
-		document.getElementById('losses').innerHTML = losses;
-		alert('You lost :(');
-		reset();
-	}
-}
-
-start()
-
-var 
-
-
-
-
-})
-
-$(document).ready(function() {
+    $(document).ready(function() {
 
       // Make our variables global to the runtime of our application
       var firstNumber = 0;
@@ -258,3 +176,8 @@ $(document).ready(function() {
       // Call initializeCalculater so we can set the state of our app
       initializeCalculator();
     });
+
+</script>
+
+</body>
+</html>
